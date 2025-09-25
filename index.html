@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Portfolio</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #0f1e20;
+            color: #d1e2e2;
+        }
+
+        .gradient-bg {
+            background: linear-gradient(135deg, #1a3539, #0f1e20);
+        }
+
+        .nav-link {
+            transition: color 0.3s, transform 0.3s;
+        }
+
+        .nav-link:hover {
+            color: #6fb2af;
+            transform: translateY(-2px);
+        }
+
+        .section-title {
+            color: #6fb2af;
+            border-bottom: 2px solid #357c7c;
+        }
+
+        .skill-bar {
+            background-color: #357c7c;
+            height: 8px;
+            border-radius: 9999px;
+            overflow: hidden;
+        }
+
+        .skill-level {
+            height: 100%;
+            background-color: #6fb2af;
+            border-radius: 9999px;
+            transition: width 1s ease-in-out;
+        }
+
+        .project-card {
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .project-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .btn {
+            background-color: #357c7c;
+            transition: background-color 0.3s, transform 0.3s;
+        }
+
+        .btn:hover {
+            background-color: #6fb2af;
+            transform: translateY(-2px);
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .content-section {
+            animation: fadeIn 0.8s ease-out;
+        }
+
+    </style>
+</head>
+<body class="gradient-bg">
+
+    <!-- Header and Navigation -->
+    <header class="py-6 px-8 flex justify-between items-center fixed top-0 w-full z-50 bg-opacity-80 backdrop-blur-sm">
+        <div class="text-2xl font-bold text-white">RyDigitalDesign.</div>
+        <nav class="space-x-8 hidden md:flex">
+            <a href="#home" class="nav-link">Home</a>
+            <a href="#skills" class="nav-link">Skills</a>
+            <a href="#services" class="nav-link">Services</a>
+            <a href="#contact" class="nav-link">Contact</a>
+        </nav>
+        <!-- Mobile menu toggle -->
+        <div class="md:hidden">
+            <button id="mobile-menu-btn" class="text-white focus:outline-none">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+        </div>
+    </header>
+
+    <!-- Mobile Menu -->
+    <div id="mobile-menu" class="hidden fixed top-0 left-0 w-full h-full bg-[#0f1e20] z-40 flex flex-col items-center justify-center space-y-8">
+        <button id="close-menu-btn" class="absolute top-8 right-8 text-white text-3xl focus:outline-none">
+            <i class="fa-solid fa-xmark"></i>
+        </button>
+        <a href="#home" class="nav-link text-3xl py-4" onclick="document.getElementById('mobile-menu').classList.add('hidden')">Home</a>
+        <a href="#skills" class="nav-link text-3xl py-4" onclick="document.getElementById('mobile-menu').classList.add('hidden')">Skills</a>
+        <a href="#services" class="nav-link text-3xl py-4" onclick="document.getElementById('mobile-menu').classList.add('hidden')">Services</a>
+        <a href="#contact" class="nav-link text-3xl py-4" onclick="document.getElementById('mobile-menu').classList.add('hidden')">Contact</a>
+    </div>
+
+    <main class="container mx-auto px-4 sm:px-6 lg:px-8 mt-24">
+
+        <!-- Home Section -->
+        <section id="home" class="min-h-screen flex flex-col md:flex-row items-center justify-center py-16 content-section">
+            <div class="md:w-1/2 text-center md:text-left mb-10 md:mb-0">
+                <h1 class="text-4xl sm:text-5xl lg:text-6xl font-bold text-white">Hi, I'm Ryan Cabanlit</h1>
+                <p class="text-xl sm:text-2xl text-[#6fb2af] mt-2">Data Analyst & Graphics Designer</p>
+                <p class="mt-4 text-sm sm:text-base leading-relaxed max-w-lg mx-auto md:mx-0">
+                    Hello! I am a passionate and results-driven professional with a strong foundation in both data analysis and graphic design. I use my analytical skills to transform complex data into actionable insights and my creative eye to visualize these findings in a compelling way. Explore my portfolio to see how I bring data to life through design.
+                </p>
+                <div class="mt-8 flex justify-center md:justify-start space-x-4">
+                    <a href="#services" class="btn text-white px-6 py-3 rounded-full font-semibold shadow-lg">View My Work</a>
+                    <a href="#contact" class="border border-[#357c7c] text-[#6fb2af] px-6 py-3 rounded-full font-semibold hover:bg-[#357c7c] hover:text-white transition-colors">Let's Connect</a>
+                </div>
+               <div class="mt-8 flex justify-center md:justify-start space-x-6 text-2xl">
+                    <a href="https://www.linkedin.com/in/ryancabanlit-rydigitaldesign/" target="_blank" class="hover:text-[#6fb2af] transition-colors"><i class="fab fa-linkedin"></i></a>
+                    <a href="https://github.com" target="_blank" class="hover:text-[#6fb2af] transition-colors"><i class="fab fa-github"></i></a>
+                    <a href="https://www.facebook.com/RydigitalDesigns" target="_blank" class="hover:text-[#6fb2af] transition-colors"><i class="fab fa-facebook"></i></a>
+                    <a href="https://behance.net" target="_blank" class="hover:text-[#6fb2af] transition-colors"><i class="fab fa-behance"></i></a>
+                </div>
+            </div>
+            <div class="md:w-1/2 flex justify-center md:justify-end">
+                <!-- You can easily resize the photo by changing the 'w-' (width) and 'h-' (height) Tailwind CSS classes below -->
+                <div class="w-100 h-100 sm:w-96 sm:h-96 lg:w-[600px] lg:h-[600px] rounded-full overflow-hidden border-4 border-[#357c7c] shadow-2xl">
+                    <!-- Placeholder image URL with your color palette -->
+                    <img src="Ryan.png" alt="Your Photo" class="w-full h-full object-cover">
+                </div>
+            </div>
+        </section>
+
+        <!-- Education & Certificates -->
+        <section class="py-16 content-section">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div>
+                    <h2 class="section-title text-2xl font-bold pb-2 mb-6">Education</h2>
+                    <ul class="space-y-6">
+                        <li class="p-6 bg-[#1a3539] rounded-lg shadow-xl">
+                            <h3 class="text-xl font-semibold">Bachelor of Science and Information technology</h3>
+                            <p class="text-[#6fb2af] mt-1">University of the Visayas | 2023 - 2022</p>
+                            <p class="mt-2 text-sm">Focused on statistical modeling, machine learning, and data visualization.</p>
+                        </li>
+                        <li class="p-6 bg-[#1a3539] rounded-lg shadow-xl">
+                            <h3 class="text-xl font-semibold">Creative Web design (Wordpress)</h3>
+                            <p class="text-[#6fb2af] mt-1"> Call Center Academy/TESDA NC2 | 2022 - 2023 </p>
+                            <p class="mt-2 text-sm">Specialized in digital illustration, UI/UX design, and typography.</p>
+                        </li>
+                    </ul>
+                </div>
+                <div>
+                    <h2 class="section-title text-2xl font-bold pb-2 mb-6">Certificates</h2>
+                    <ul class="space-y-6">
+                        <li class="p-6 bg-[#1a3539] rounded-lg shadow-xl">
+                            <h3 class="text-xl font-semibold">Certificate of Participation DataSense: Power BI Crash Course</h3>
+                            <p class="text-[#6fb2af] mt-1">DataSence | 2025</p>
+                        </li>
+                        <li class="p-6 bg-[#1a3539] rounded-lg shadow-xl">
+                            <h3 class="text-xl font-semibold">Data Privacy : Certificate of Completion</h3>
+                            <p class="text-[#6fb2af] mt-1">LRN Legal Compliance & Ethics Center | 2025</p>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Skills Section -->
+        <section id="skills" class="py-16 content-section">
+            <h2 class="section-title text-3xl font-bold text-center pb-4 mb-10">My Skills</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+                <div>
+                    <h3 class="text-xl font-semibold mb-4">Data Analysis Skills</h3>
+                    <div class="space-y-6">
+                        <div>
+                            <p class="flex justify-between items-center mb-1"><span>Power BI</span><span id="power-bi-value">80%</span></p>
+                            <div class="skill-bar"><div id="power-bi-bar" class="skill-level" style="width: 0;"></div></div>
+                        </div>
+                        <div>
+                            <p class="flex justify-between items-center mb-1"><span>Excel</span><span id="excel-value">85%</span></p>
+                            <div class="skill-bar"><div id="excel-bar" class="skill-level" style="width: 0;"></div></div>
+                        </div>
+                        <div>
+                            <p class="flex justify-between items-center mb-1"><span>SQL</span><span id="sql-value">50%</span></p>
+                            <div class="skill-bar"><div id="sql-bar" class="skill-level" style="width: 0;"></div></div>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <h3 class="text-xl font-semibold mb-4">Graphic Design Skills</h3>
+                    <div class="space-y-6">
+                        <div>
+                            <p class="flex justify-between items-center mb-1"><span>Adobe Photoshop</span><span id="photoshop-value">90%</span></p>
+                            <div class="skill-bar"><div id="photoshop-bar" class="skill-level" style="width: 0;"></div></div>
+                        </div>
+                        <div>
+                            <p class="flex justify-between items-center mb-1"><span>Adobe Illustrator</span><span id="illustrator-value">80%</span></p>
+                            <div class="skill-bar"><div id="illustrator-bar" class="skill-level" style="width: 0;"></div></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Services Section -->
+        <section id="services" class="py-16 content-section">
+            <h2 class="section-title text-3xl font-bold text-center pb-4 mb-10">My Services & Projects</h2>
+            <p class="text-center text-lg mb-12 max-w-2xl mx-auto">I offer a unique blend of analytical and creative services. Below are some of my key service areas and examples of my work.</p>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Project 1 -->
+                    <div class="project-card bg-[#1a3539] p-6 rounded-lg shadow-xl">
+                    <div class="project-carousel relative" data-index="0">
+                        <div class="carousel-images relative w-full h-48 overflow-hidden rounded-lg mb-4">
+                            <img src="LOOPQUAL .jpg" alt="Data Dashboard Project 1" class="carousel-image absolute top-0 left-0 w-full h-full object-cover transition-opacity duration-300 opacity-100">
+                            <img src="CCAI background.jpg" alt="Data Dashboard Project 2" class="carousel-image absolute top-0 left-0 w-full h-full object-cover transition-opacity duration-300 opacity-0">
+                            <img src="CCAI BACKGROUND.png" alt="Data Dashboard Project 3" class="carousel-image absolute top-0 left-0 w-full h-full object-cover transition-opacity duration-300 opacity-0">
+                            <img src="Capture.JPG" alt="Data Dashboard Project 3" class="carousel-image absolute top-0 left-0 w-full h-full object-cover transition-opacity duration-300 opacity-0">
+                        </div>
+                        <button class="absolute top-1/2 left-2 transform -translate-y-1/2 text-white bg-gray-800 bg-opacity-50 hover:bg-opacity-75 rounded-full p-2 transition-colors carousel-button" onclick="changeImage(this, -1)">
+                            <i class="fas fa-chevron-left"></i>
+                        </button>
+                        <button class="absolute top-1/2 right-2 transform -translate-y-1/2 text-white bg-gray-800 bg-opacity-50 hover:bg-opacity-75 rounded-full p-2 transition-colors carousel-button" onclick="changeImage(this, 1)">
+                            <i class="fas fa-chevron-right"></i>
+                        </button>
+                    </div>
+                    <h3 class="text-xl font-semibold text-[#6fb2af]">Interactive Data Dashboard</h3>
+                    <p class="text-sm mt-2">Designed and built a Power BI dashboard to visualize bank complaints and BPO KPIs. The project includes multiple screenshots to highlight different views and key features.</p>
+                </div>
+                <!-- Project 2 -->
+                <div class="project-card bg-[#1a3539] p-6 rounded-lg shadow-xl">
+                    <div class="project-carousel relative" data-index="0">
+                        <div class="carousel-images relative w-full h-48 overflow-hidden rounded-lg mb-4">
+                            <img src="Artboard 1.jpg" alt="Data Dashboard Project 1" class="carousel-image absolute top-0 left-0 w-full h-full object-cover transition-opacity duration-300 opacity-100">
+                            <img src="Artboard 2.jpg" alt="Data Dashboard Project 2" class="carousel-image absolute top-0 left-0 w-full h-full object-cover transition-opacity duration-300 opacity-0">
+                            <img src="Artboard 3.jpg" alt="Data Dashboard Project 3" class="carousel-image absolute top-0 left-0 w-full h-full object-cover transition-opacity duration-300 opacity-0">
+                            <img src="Artboard 4.jpg" alt="Data Dashboard Project 3" class="carousel-image absolute top-0 left-0 w-full h-full object-cover transition-opacity duration-300 opacity-0">
+                        </div>
+                        <button class="absolute top-1/2 left-2 transform -translate-y-1/2 text-white bg-gray-800 bg-opacity-50 hover:bg-opacity-75 rounded-full p-2 transition-colors carousel-button" onclick="changeImage(this, -1)">
+                            <i class="fas fa-chevron-left"></i>
+                        </button>
+                        <button class="absolute top-1/2 right-2 transform -translate-y-1/2 text-white bg-gray-800 bg-opacity-50 hover:bg-opacity-75 rounded-full p-2 transition-colors carousel-button" onclick="changeImage(this, 1)">
+                            <i class="fas fa-chevron-right"></i>
+                        </button>
+                    </div>
+                    <h3 class="text-xl font-semibold text-[#6fb2af]">Infographic Design</h3>
+                    <p class="text-sm mt-2">Designed a series of infographics and social media graphics tailored for dental clinics, making key information easily understandable and visually engaging for patients.</p>
+                </div>
+                <!-- Project 3 -->
+             <div class="project-card bg-[#1a3539] p-6 rounded-lg shadow-xl">
+                    <div class="project-carousel relative" data-index="0">
+                        <div class="carousel-images relative w-full h-48 overflow-hidden rounded-lg mb-4">
+                            <img src="Nightsquid.jpg" alt="Data Dashboard Project 1" class="carousel-image absolute top-0 left-0 w-full h-full object-cover transition-opacity duration-300 opacity-100">
+                            <img src="nightsquidjacket.jpg" alt="Data Dashboard Project 2" class="carousel-image absolute top-0 left-0 w-full h-full object-cover transition-opacity duration-300 opacity-0">
+                            <img src="chefsonny.png" alt="Data Dashboard Project 3" class="carousel-image absolute top-0 left-0 w-full h-full object-cover transition-opacity duration-300 opacity-0">
+                            <img src="Chefsmenu.png" alt="Data Dashboard Project 3" class="carousel-image absolute top-0 left-0 w-full h-full object-cover transition-opacity duration-300 opacity-0">
+                            <img src="menu-mockup001.jpg" alt="Data Dashboard Project 3" class="carousel-image absolute top-0 left-0 w-full h-full object-cover transition-opacity duration-300 opacity-0">
+                            <img src="menu-mockup002.jpg" alt="Data Dashboard Project 3" class="carousel-image absolute top-0 left-0 w-full h-full object-cover transition-opacity duration-300 opacity-0">
+                        </div>
+                        <button class="absolute top-1/2 left-2 transform -translate-y-1/2 text-white bg-gray-800 bg-opacity-50 hover:bg-opacity-75 rounded-full p-2 transition-colors carousel-button" onclick="changeImage(this, -1)">
+                            <i class="fas fa-chevron-left"></i>
+                        </button>
+                        <button class="absolute top-1/2 right-2 transform -translate-y-1/2 text-white bg-gray-800 bg-opacity-50 hover:bg-opacity-75 rounded-full p-2 transition-colors carousel-button" onclick="changeImage(this, 1)">
+                            <i class="fas fa-chevron-right"></i>
+                        </button>
+                    </div>
+                    <h3 class="text-xl font-semibold text-[#6fb2af]">Creative Branding & Apparel Design</h3>
+                    <p class="text-sm mt-2">Crafted custom menu designs, logos, and motor jersey graphics that align with brand identity and deliver visually striking, audience-specific designs.</p>
+                </div>
+                <!-- Add more project cards as needed -->
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="py-16 content-section">
+            <h2 class="section-title text-3xl font-bold text-center pb-4 mb-10">Get in Touch</h2>
+            <div class="max-w-xl mx-auto">
+                <p class="text-center mb-8">Feel free to reach out to discuss potential projects or collaborations. You can also download my CV below.</p>
+                <div class="flex flex-col sm:flex-row justify-center items-center space-y-4 sm:space-y-0 sm:space-x-4 mb-8">
+                    <a href="Ryan Cabanlit .pdf" class="btn text-white px-6 py-3 rounded-full font-semibold shadow-lg">
+                        <i class="fa-solid fa-download mr-2"></i>Download CV
+                    </a>
+                     <a href="Portfolio.pdf" download class="btn text-white px-6 py-3 rounded-full font-semibold shadow-lg">
+                        <i class="fa-solid fa-briefcase mr-2"></i>Download Portfolio PDF
+                    </a>
+                </div>
+                <div class="p-8 bg-[#1a3539] rounded-lg shadow-xl">
+                    <form action="mailto:your_email@example.com" method="post" enctype="text/plain">
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                            <input type="text" name="name" placeholder="Your Name" class="bg-[#0f1e20] text-white p-3 rounded-md border border-[#357c7c] focus:ring-2 focus:ring-[#6fb2af] focus:outline-none">
+                            <input type="email" name="email" placeholder="Your Email" class="bg-[#0f1e20] text-white p-3 rounded-md border border-[#357c7c] focus:ring-2 focus:ring-[#6fb2af] focus:outline-none">
+                        </div>
+                        <input type="text" name="subject" placeholder="Subject" class="w-full mt-6 bg-[#0f1e20] text-white p-3 rounded-md border border-[#357c7c] focus:ring-2 focus:ring-[#6fb2af] focus:outline-none">
+                        <textarea name="message" rows="5" placeholder="Your Message" class="w-full mt-6 bg-[#0f1e20] text-white p-3 rounded-md border border-[#357c7c] focus:ring-2 focus:ring-[#6fb2af] focus:outline-none"></textarea>
+                        <div class="mt-6 text-center">
+                            <button type="submit" class="btn text-white px-8 py-3 rounded-full font-semibold shadow-lg">Send Message</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="py-8 text-center text-sm text-gray-500">
+        &copy; 2025 RyDigitalDesign. All Rights Reserved.
+    </footer>
+
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Function to animate skill bars on page load
+        function animateSkills() {
+            const skills = [
+                { id: 'power-bi', value: 90 },
+                { id: 'excel', value: 95 },
+                { id: 'sql', value: 85 },
+                { id: 'photoshop', value: 90 },
+                { id: 'illustrator', value: 80 }
+            ];
+
+            skills.forEach(skill => {
+                const bar = document.getElementById(skill.id + '-bar');
+                if (bar) {
+                    setTimeout(() => {
+                        bar.style.width = skill.value + '%';
+                    }, 500); // 500ms delay to allow content to render
+                }
+            });
+        }
+
+        // Mobile menu toggle
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const closeMenuBtn = document.getElementById('close-menu-btn');
+
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.remove('hidden');
+        });
+
+        closeMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.add('hidden');
+        });
+
+        // Observer to check when elements are in view
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    // Start skill animation when skills section is visible
+                    if (entry.target.id === 'skills') {
+                        animateSkills();
+                    }
+                }
+            });
+        }, {
+            threshold: 0.1 // Trigger when 10% of the element is visible
+        });
+
+        // Observe each content section
+        document.querySelectorAll('.content-section').forEach(section => {
+            observer.observe(section);
+        });
+                // Function to handle the image carousel
+        function changeImage(el, direction) {
+            const carousel = el.closest('.project-carousel');
+            const images = carousel.querySelectorAll('.carousel-image');
+            let currentIndex = parseInt(carousel.getAttribute('data-index'));
+
+            // Hide the current image
+            images[currentIndex].classList.remove('opacity-100');
+            images[currentIndex].classList.add('opacity-0');
+
+            // Calculate the new index
+            let newIndex = (currentIndex + direction + images.length) % images.length;
+            carousel.setAttribute('data-index', newIndex);
+
+            // Show the new image
+            images[newIndex].classList.remove('opacity-0');
+            images[newIndex].classList.add('opacity-100');
+        }
+
+    </script>
+
+</body>
+</html>
